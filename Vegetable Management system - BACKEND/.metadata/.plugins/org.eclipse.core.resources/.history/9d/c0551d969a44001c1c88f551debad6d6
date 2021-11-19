@@ -1,0 +1,50 @@
+package com.hexaware.vegetablemanagement.entity;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+public class VendorVeg {
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="VegetableId", referencedColumnName="Id")
+	private Vegetable vegetable;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="VendorId", referencedColumnName="Id")
+	private Vendor vendor;
+
+	public VendorVeg() {
+		super();
+	}
+
+	public VendorVeg(Vegetable vegetable, Vendor vendor) {
+		super();
+		this.vegetable = vegetable;
+		this.vendor = vendor;
+	}
+
+	public Vegetable getVegetable() {
+		return vegetable;
+	}
+
+	public void setVegetable(Vegetable vegetable) {
+		this.vegetable = vegetable;
+	}
+
+	public Vendor getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+	
+	
+}

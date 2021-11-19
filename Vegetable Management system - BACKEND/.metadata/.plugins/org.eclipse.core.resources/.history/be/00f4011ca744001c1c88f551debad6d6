@@ -1,0 +1,4 @@
+
+public interface VendorVeg extends JpaRepository<VendorVeg, Long> {
+
+}
